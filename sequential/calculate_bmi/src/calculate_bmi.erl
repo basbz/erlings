@@ -4,8 +4,19 @@
 
 -include("../src/person_record.hrl").
 
-bmi(Person) ->
-  put_your_solution_here.
+bmi(#person{weight=W, height=H}) ->
+    W / ( H * H).
+
+
+
+classify(_, Bmi) when Bmi < 18.5 ->
+    underweight;
+classify(_, Bmi) when (Bmi > 18.5) and (Bmi < 25) ->
+    normal;
+classify(_, Bmi) when (Bmi > 25) and (Bmi < 30) ->
+    overweight;
+classify(_, Bmi) when Bmi > 30 ->
+    obese.
 
 classify(Person) ->
-  put_your_solution_here.
+  classify(Person, bmi(Person)).

@@ -15,7 +15,7 @@ process(withdraw, {Nr, Total}, Amount) ->
         false -> {Nr, Total - Amount}
     end;
 process(deposit, {Nr, Total}, Amount) ->
-        {Nr, Total + Amount}.
+    {Nr, Total + Amount}.
 
 process_operation(Bank, {Nr, Op, Amount}) ->
     Account = account(Bank, Nr),
